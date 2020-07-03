@@ -20,32 +20,32 @@ public class LoginTest {
 
     @Test
     public void login() {
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
+        driver.findElement(By.cssSelector("a[href*=\"account\"] span.label")).click();
+        driver.findElement(By.cssSelector("a[href*=\"login\"]")).click();
         driver.findElement(By.cssSelector("#email")).sendKeys("aladin@yahoo.com");
         driver.findElement(By.cssSelector("#pass")).sendKeys("ghiceste");
-        driver.findElement(By.cssSelector("#send2 > span > span")).click();
-        WebElement welcomeElement = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col2-left-layout > div > div.col-main > div.my-account > div > div.welcome-msg > p.hello > strong"));
+        driver.findElement(By.cssSelector("#send2")).click();
+        WebElement welcomeElement = driver.findElement(By.cssSelector(".hello"));
         Assert.assertTrue(welcomeElement.isDisplayed());
         //Assert.assertEquals("Hello, Bonda Moise Dan!", welcomeElement.getText());
     }
 
     @Test
     public void loginWithNumbers() {
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
+        driver.findElement(By.cssSelector("a[href*=\"account\"] span.label")).click();
+        driver.findElement(By.cssSelector("a[href*=\"login\"]")).click();
         driver.findElement(By.cssSelector("#email")).sendKeys("111111@yahoo.com");
         driver.findElement(By.cssSelector("#pass")).sendKeys("111111");
-        driver.findElement(By.cssSelector("#send2 > span > span")).click();
-        WebElement failed = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col2-left-layout > div > div.col-main > div.my-account > div > div.welcome-msg > p.hello > strong"));
+        driver.findElement(By.cssSelector("#send2")).click();
+        WebElement failed = driver.findElement(By.cssSelector(".hello"));
         Assert.assertTrue(failed.isDisplayed());
     }
 
     @Test
     public void emptyLogin() {
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
-        driver.findElement(By.cssSelector("#send2 > span > span")).click();
+        driver.findElement(By.cssSelector("a[href*=\"account\"] span.label")).click();
+        driver.findElement(By.cssSelector("a[href*=\"login\"]")).click();
+        driver.findElement(By.cssSelector("#send2")).click();
         WebElement emptyEmail = driver.findElement(By.cssSelector("#advice-required-entry-email"));
         Assert.assertTrue(emptyEmail.isDisplayed());
         WebElement emptyPass = driver.findElement(By.cssSelector("#advice-required-entry-pass"));

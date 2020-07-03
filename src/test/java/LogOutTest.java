@@ -15,18 +15,19 @@ public class LogOutTest {
         System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://testfasttrackit.info/selenium-test/");
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
+        driver.findElement(By.cssSelector("a[href*=\"account\"] span.label")).click();
+        driver.findElement(By.cssSelector("a[href*=\"login\"]")).click();
         driver.findElement(By.cssSelector("#email")).sendKeys("aladin@yahoo.com");
         driver.findElement(By.cssSelector("#pass")).sendKeys("ghiceste");
-        driver.findElement(By.cssSelector("#send2 > span > span")).click();
+        driver.findElement(By.cssSelector("#send2")).click();
     }
 
     @Test
-    public void logOut(){
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
-        WebElement loggedOut = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col1-layout > div > div > div.page-title > h1"));
+    public void logOut() throws InterruptedException {
+        driver.findElement(By.cssSelector("a.skip-link.skip-account")).click();
+        driver.findElement(By.cssSelector("a[href*=\"logout\"]")).click();
+        Thread.sleep(5000);
+        WebElement loggedOut = driver.findElement(By.cssSelector(".welcome-msg"));
         Assert.assertTrue(loggedOut.isDisplayed());
     }
 

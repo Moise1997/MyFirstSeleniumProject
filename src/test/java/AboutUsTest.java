@@ -19,8 +19,8 @@ public class AboutUsTest {
 
     @Test
     public void aboutUs(){
-        driver.findElement(By.cssSelector("body > div > div.page > div.footer-container > div > div:nth-child(2) > ul > li:nth-child(1) > a")).click();
-        WebElement aboutUs = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col2-left-layout > div > div.col-main > div.std > div.page-head > h3"));
+        driver.findElement(By.cssSelector(".links a[href*=\"about\"]")).click();
+        WebElement aboutUs = driver.findElement(By.cssSelector(".page-head"));
         Assert.assertTrue(aboutUs.isDisplayed());
     }
 

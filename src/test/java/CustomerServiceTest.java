@@ -19,8 +19,8 @@ public class CustomerServiceTest {
 
     @Test
     public void customerService (){
-        driver.findElement(By.cssSelector("body > div > div.page > div.footer-container > div > div:nth-child(2) > ul > li:nth-child(3) > a")).click();
-        WebElement customerService = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col2-left-layout > div > div.col-main > div.std > div > h1"));
+        driver.findElement(By.cssSelector("a[href*=\"customer-service\"]")).click();
+        WebElement customerService = driver.findElement(By.cssSelector(".page-title"));
         Assert.assertTrue(customerService.isDisplayed());
     }
 

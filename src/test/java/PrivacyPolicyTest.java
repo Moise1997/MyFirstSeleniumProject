@@ -19,8 +19,8 @@ public class PrivacyPolicyTest {
 
     @Test
     public void privacy(){
-        driver.findElement(By.cssSelector("body > div > div.page > div.footer-container > div > div:nth-child(2) > ul > li:nth-child(4) > a")).click();
-        WebElement privacyPolicy = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col2-left-layout > div > div.col-main > div.page-title > h1"));
+        driver.findElement(By.cssSelector("a[href*=\"privacy\"]")).click();
+        WebElement privacyPolicy = driver.findElement(By.cssSelector(".page-title"));
         Assert.assertTrue(privacyPolicy.isDisplayed());
     }
 
